@@ -1,6 +1,6 @@
 import { CustomApiError } from '../errors/custom-error.js';
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = async (err, req, res, next) => {
     if(err instanceof CustomApiError){
         return res.status(err.statusCode).json({success : false, msg : err.message});
     }
